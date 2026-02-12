@@ -1,242 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هويدة ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:black;
-color:white;
-text-align:center;
-overflow:hidden;
-}
-
-/* خلفية جديدة جميلة */
-.bg{
-position:fixed;
-inset:0;
-background: radial-gradient(circle at center, rgba(212,175,55,0.4), #000000), url('https://images.unsplash.com/photo-1519183071298-a2962be90b2f');
-background-size:cover;
-background-position:center;
-z-index:-1;
-filter:brightness(0.45);
-}
-
-/* الصفحات */
-.page{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-transition:1s;
-}
-.hidden{opacity:0;pointer-events:none}
-
-/* العناوين */
-h1{
-font-size:clamp(30px,5vw,44px);
-background:linear-gradient(90deg,#ffd700,#fff,#ffd700);
-background-size:200% auto;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shine 3s linear infinite;
-}
-@keyframes shine{to{background-position:200% center}}
-
-/* النص */
-#message{
-font-size:20px;
-line-height:2;
-max-width:850px;
-padding:25px;
-margin-top:20px;
-background:rgba(255,255,255,0.06);
-border-radius:20px;
-}
-
-/* الأزرار */
-button{
-margin-top:25px;
-padding:15px 40px;
-font-size:18px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-background:linear-gradient(45deg,#d4af37,#ffd700);
-color:black;
-font-weight:bold;
-transition:.3s;
-}
-button:hover{transform:scale(1.1)}
-
-/* العداد */
-#counterBox{
-margin-top:25px;
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:20px;
-font-size:18px;
-}
-
-/* توقيع */
-.signature{margin-top:10px;font-size:16px;opacity:.85}
-
-/* انستا */
-.insta-box{
-margin-top:20px;
-background:rgba(255,255,255,0.1);
-padding:15px 30px;
-border-radius:25px;
-display:flex;
-gap:15px;
-align-items:center;
-justify-content:center;
-flex-wrap:wrap;
-}
-.insta-box a{
-color:#ffd700;
-text-decoration:none;
-font-weight:bold;
-}
-.insta-box i{font-size:22px;color:#E1306C}
-
-/* قلوب */
-.heart{
-position:absolute;
-animation:float 6s linear infinite;
-font-size:24px;
-}
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh)}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى هويده ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: 'Cairo', sans-serif; overflow: hidden; color: white; text-align: center;
+            background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+            url("https://images.unsplash.com/photo-1518199266791-739d6ff26ef0?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat fixed;
+            animation: bgZoom 30s ease-in-out infinite;
+        }
+        @keyframes bgZoom { 0%, 100% { background-size: 100% } 50% { background-size: 110% } }
+        .page { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.8s ease-in-out; padding: 20px; }
+        .hidden { opacity: 0; pointer-events: none; }
+        h1 { font-size: clamp(24px, 6vw, 42px); background: linear-gradient(90deg, #ffd700, #fff, #ffd700); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; margin-bottom: 10px; }
+        @keyframes shine { to { background-position: 200% center } }
+        #message { font-size: clamp(14px, 4vw, 18px); line-height: 1.8; max-width: 600px; min-height: 120px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; padding: 15px; white-space: pre-wrap; }
+        button { margin-top: 20px; padding: 12px 30px; font-size: 18px; border: none; border-radius: 50px; cursor: pointer; background: linear-gradient(45deg, #d4af37, #ffd700); color: black; font-weight: bold; transition: .3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        button:hover { transform: scale(1.1); box-shadow: 0 0 20px #ffd700; }
+        #singleImage { width: 180px; height: 180px; margin: 15px auto; border-radius: 50%; border: 3px solid #ffd700; background-size: cover; background-position: center; box-shadow: 0 0 25px rgba(255,215,0,0.6); }
+        .counter-boxes { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+        .box { width: 65px; height: 65px; background: rgba(212, 175, 55, 0.9); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: black; }
+        .box span { font-size: 18px; font-weight: bold; }
+        .box small { font-size: 10px; }
+        .signature { margin-top: 15px; font-style: italic; color: #ffd700; }
+        .heart { position: absolute; animation: float 5s linear infinite; font-size: 20px; z-index: -1; }
+        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        .insta-box { margin-top: 20px; background: rgba(255,255,255,0.15); padding: 12px 25px; border-radius: 30px; display: flex; gap: 10px; align-items: center; backdrop-filter: blur(5px); }
+        .insta-box a { color: #ffd700; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
-
 <body>
-
-<div class="bg"></div>
-
-<!-- الصفحة الأولى -->
-<div id="page1" class="page">
-<h1>أهلاً هويده ❤️</h1>
-<p>في شي حاب أقوله من قلبي…</p>
-<button onclick="goToSecond()">ابدئي ✨</button>
-</div>
-
-<!-- الصفحة الثانية -->
-<div id="page2" class="page hidden">
-<h1>هويده ❤️</h1>
-
-<div id="message"></div>
-
-<div id="counterBox">
-منذ 4 مارس 2024 ❤️<br>
-<span id="counter"></span>
-<div class="signature">
-— حساب الإنستغرام الخاص بي<br>
-اضغطي على اليوزر
-</div>
-</div>
-
-<!-- زر حساب الإنستغرام -->
-<div class="insta-box">
-<i class="fa-brands fa-instagram"></i>
-<a href="https://www.instagram.com/3ACZ" target="_blank">@3ACZ</a>
-</div>
-
-<button onclick="goToThird()">استمري 💌</button>
-</div>
-
-<!-- الصفحة الثالثة -->
-<div id="page3" class="page hidden">
-<h1>ممكن نلتقي؟</h1>
-<button onclick="accepted()">موافق</button>
-</div>
-
-<script>
-const p1=page1,p2=page2,p3=page3;
-
-/* التنقل */
-function goToSecond(){
-p1.classList.add("hidden");
-p2.classList.remove("hidden");
-message.innerHTML="";
-i=0;
-setTimeout(startTyping,400);
-}
-function goToThird(){
-p2.classList.add("hidden");
-p3.classList.remove("hidden");
-}
-
-/* الكتابة */
-const text=`هلا هويده…
-يمكن ما تعرفيني زين بعد، بس حسيت لازم أقول لك شي من قلبي.
-من أول ما عرفتك صار عندك أثر مختلف بحياتي،
-ضحكتك، طريقتك، وحتى وجودك يخلي يومي أحلى.
-ما أريد أطوّل بالكلام…
-الحقيقة الواضحة، وأتمنى يكون إلي مكان بقلبج
-مثل ما إلك مكان كبير بقلبي.`;
-
-let i=0;
-function startTyping(){
-if(i<text.length){
-message.innerHTML+=text.charAt(i++);
-setTimeout(startTyping,70);
-}
-}
-
-/* العداد */
-const loveStart=new Date(2024,2,4);
-function updateCounter(){
-let d=new Date()-loveStart;
-counter.innerHTML=
-`${Math.floor(d/86400000)} يوم
-${Math.floor(d%86400000/3600000)} ساعة
-${Math.floor(d%3600000/60000)} دقيقة
-${Math.floor(d%60000/1000)} ثانية`;
-}
-setInterval(updateCounter,1000);updateCounter();
-
-/* الموافقة */
-function accepted(){
-p3.innerHTML=`
-<h1>تم تسجيل الموافقة</h1>
-`;
-
-for(let i=0;i<40;i++){
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="💖";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
-}
-}
-
-/* قلوب مستمرة */
-setInterval(()=>{
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
-},900);
-</script>
-
+    <div id="page1" class="page">
+        <h1>أهلاً هويده ❤️</h1>
+        <p>بمناسبة مرور وقت طويل على وجودج بحياتي...</p>
+        <button onclick="goToSecond()">اضغطي هنا ✨</button>
+    </div>
+    <div id="page2" class="page hidden">
+        <h1>هويده ❤️</h1>
+        <div id="message"></div>
+        <div id="singleImage" style="background-image:url('https://images.unsplash.com/photo-1494972308255-02012105307a?auto=format&fit=crop&w=500&q=80');"></div>
+        <div id="loveCounter">
+            <p style="margin-bottom: 5px;">صار لنا سوياً منذ 4 مارس 2024</p>
+            <div class="counter-boxes">
+                <div class="box"><span id="days">0</span><small>يوم</small></div>
+                <div class="box"><span id="hours">0</span><small>ساعة</small></div>
+                <div class="box"><span id="minutes">0</span><small>دقيقة</small></div>
+                <div class="box"><span id="seconds">0</span><small>ثانية</small></div>
+            </div>
+            <div class="signature">— أسامه سامي 🤍<br><small>ما أفرط بيج لأخر نفس</small></div>
+        </div>
+        <button onclick="goToThird()">عندي سؤال.. ✨</button>
+    </div>
+    <div id="page3" class="page hidden">
+        <h1 style="animation: pulse 1s infinite alternate;">ممكن نلتقي قريباً؟</h1>
+        <div style="display:flex; gap:10px;">
+            <button onclick="accepted()">أكيد ❤️</button>
+            <button onclick="accepted()">بإذن الله ✨</button>
+        </div>
+    </div>
+    <script>
+        const p1=document.getElementById("page1"), p2=document.getElementById("page2"), p3=document.getElementById("page3");
+        let i=0; const text=`هلا هويده…\nيمكن ما تعرفيني زين بعد، بس حسيت لازم أقول لك شي من قلبي.\nمن أول ما عرفتك صار عندك أثر مختلف بحياتي،\nضحكتك، طريقتك، وحتى وجودك يخلي يومي أحلى.\n\nيگولون العيون هي مراية الروح، وآني شفت روحي بعيونچ.\nجمالچ بي هيبة ونازك بنفس الوقت، لدرجة أخاف أطوّل بالنظر إلچ وأنفضح.\nحبيت أگولچ إنچ أجمل إنسانة شافتها عيني، ومكاني بقلبي صار محجوز إلچ.`;
+        function goToSecond(){ p1.classList.add("hidden"); p2.classList.remove("hidden"); setTimeout(startTyping,500); }
+        function startTyping(){ if(i<text.length){ document.getElementById("message").innerHTML+=text.charAt(i); i++; setTimeout(startTyping,40); } }
+        function goToThird(){ p2.classList.add("hidden"); p3.classList.remove("hidden"); }
+        function updateCounter(){ const loveStart=new Date(2024,2,4), now=new Date(), diff=now-loveStart; document.getElementById("days").innerText=Math.floor(diff/(1000*60*60*24)); document.getElementById("hours").innerText=Math.floor((diff/(1000*60*60))%24); document.getElementById("minutes").innerText=Math.floor((diff/1000/60)%60); document.getElementById("seconds").innerText=Math.floor((diff/1000)%60); }
+        setInterval(updateCounter,1000);
+        function accepted(){ p3.innerHTML="<h1>أحلى خبر! ❤️</h1><p>راح أتواصل وياج حتى نرتب الموعد</p>"; createHearts(50); let instaDiv=document.createElement("div"); instaDiv.className="insta-box"; instaDiv.innerHTML=`<i class="fa-brands fa-instagram" style="color:#E1306C"></i> <a href="https://www.instagram.com/3ACZ" target="_blank">@3ACZ</a>`; p3.appendChild(instaDiv); }
+        function createHearts(num){ for(let i=0;i<num;i++){ setTimeout(()=>{ let h=document.createElement("div"); h.className="heart"; h.innerHTML=["❤️","💖","✨","🌸"][Math.floor(Math.random()*4)]; h.style.left=Math.random()*100+"vw"; h.style.fontSize=(Math.random()*20+10)+"px"; document.body.appendChild(h); setTimeout(()=>h.remove(),5000); },i*100); } }
+        setInterval(()=>createHearts(1),1500);
+    </script>
 </body>
 </html>
