@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هويده</title>
+<title>هويدة</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
@@ -14,17 +14,17 @@ body{
 margin:0;
 font-family:'Cairo',sans-serif;
 background:black;
-color:#e6c200;
+color:#ffd700;
 text-align:center;
 overflow:hidden;
 }
 
-/* خلفية ذهبية رسمية */
+/* خلفية رسمية ذهبية */
 .bg{
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(60,45,10,.7), black),
+radial-gradient(circle at center, rgba(60,45,10,.6), black),
 url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
 background-size:cover;
 background-position:center;
@@ -32,7 +32,6 @@ z-index:-1;
 filter:brightness(.4);
 }
 
-/* الصفحات */
 .page{
 position:absolute;
 width:100%;
@@ -41,16 +40,16 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-transition:opacity 0.8s ease;
+transition:opacity .6s ease;
 }
+
 .hidden{
 opacity:0;
 pointer-events:none;
 }
 
 h1{
-font-size:30px;
-letter-spacing:3px;
+font-size:32px;
 margin-bottom:10px;
 }
 
@@ -73,18 +72,18 @@ justify-content:center;
 .box{
 background:linear-gradient(145deg,#c9a227,#ffd700);
 color:black;
-padding:10px 16px;
+padding:12px 18px;
 border-radius:8px;
-min-width:70px;
+min-width:80px;
 font-weight:bold;
 font-size:14px;
 }
 
 /* أزرار */
 button{
-margin:15px;
-padding:10px 24px;
-font-size:15px;
+margin-top:20px;
+padding:10px 25px;
+font-size:14px;
 border:none;
 border-radius:30px;
 cursor:pointer;
@@ -102,6 +101,11 @@ transform:scale(1.05);
 #noBtn{
 position:absolute;
 }
+a{
+color:#ffd700;
+text-decoration:none;
+font-weight:bold;
+}
 </style>
 </head>
 
@@ -111,16 +115,16 @@ position:absolute;
 
 <!-- الصفحة 1 -->
 <div id="page1" class="page">
-<h1>إشعار</h1>
-<p>
-يرجى متابعة القراءة للاطلاع على المحتوى.
-</p>
-<button onclick="goToSecond()">متابعة</button>
+<h1>هلا هويدة</h1>
+<button onclick="goToSecond()">اضغطي هنا</button>
 </div>
 
 <!-- الصفحة 2 -->
 <div id="page2" class="page hidden">
-<h1>تاريخ البداية</h1>
+
+<p>
+من أول 2024 بدأ احتساب الوقت بشكل مستمر.
+</p>
 
 <div class="counter">
 <div class="box"><span id="d">0</span> يوم</div>
@@ -129,39 +133,33 @@ position:absolute;
 <div class="box"><span id="s">0</span> ثانية</div>
 </div>
 
-<p style="margin-top:20px;">
-يتم احتساب المدة منذ 4 مارس 2024.
-</p>
+<button onclick="showMusic()">استمري</button>
 
-<button onclick="goToThird()">التالي</button>
-</div>
+<div id="musicSection" style="display:none;margin-top:20px;">
+<a href="https://www.youtube.com/watch?v=5E4w8N8qQhA" target="_blank">
+🎵 أنتِ جنة – دعوة أمي
+</a>
 
-<!-- الصفحة 3 -->
-<div id="page3" class="page hidden">
-<h1>سؤال</h1>
-<p>
-هل توافقين على الاستمرار في هذا المسار؟
-</p>
-
-<button onclick="accepted()">نعم</button>
+<div style="margin-top:20px;">
+<button onclick="accepted()">موافقة</button>
 <button id="noBtn">لا</button>
 </div>
 
+</div>
+
+</div>
+
 <script>
-const p1=page1,p2=page2,p3=page3;
+const p1=page1;
+const p2=page2;
 
 function goToSecond(){
 p1.classList.add("hidden");
 p2.classList.remove("hidden");
 }
 
-function goToThird(){
-p2.classList.add("hidden");
-p3.classList.remove("hidden");
-}
-
-/* عداد */
-const start=new Date(2024,2,4);
+/* عداد منذ 2024 */
+const start=new Date(2024,0,1);
 function update(){
 let diff=new Date()-start;
 d.innerText=Math.floor(diff/86400000);
@@ -171,6 +169,10 @@ s.innerText=Math.floor(diff%60000/1000);
 }
 setInterval(update,1000);
 update();
+
+function showMusic(){
+document.getElementById("musicSection").style.display="block";
+}
 
 /* زر لا يهرب */
 const noBtn=document.getElementById("noBtn");
@@ -193,8 +195,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 color:#ffd700;
-font-size:28px;
-letter-spacing:3px;
+font-size:26px;
 ">
 تم تسجيل الموافقة.
 </div>
