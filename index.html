@@ -1,14 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هويده ❤️</title>
+<title>هويده</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{box-sizing:border-box}
@@ -17,28 +14,25 @@ body{
 margin:0;
 font-family:'Cairo',sans-serif;
 background:black;
-color:white;
+color:#e6c200;
 text-align:center;
 overflow:hidden;
 }
 
-.earth-bg{
+/* خلفية ذهبية رسمية */
+.bg{
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa");
+radial-gradient(circle at center, rgba(60,45,10,.7), black),
+url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
 background-size:cover;
 background-position:center;
-animation:moveBg 40s linear infinite;
 z-index:-1;
-}
-@keyframes moveBg{
-0%{transform:scale(1) translateX(0)}
-50%{transform:scale(1.08) translateX(-20px)}
-100%{transform:scale(1) translateX(0)}
+filter:brightness(.4);
 }
 
+/* الصفحات */
 .page{
 position:absolute;
 width:100%;
@@ -47,100 +41,110 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-transition:opacity 1s ease, transform 1s ease;
+transition:opacity 0.8s ease;
 }
 .hidden{
 opacity:0;
 pointer-events:none;
-transform:scale(0.95);
 }
 
 h1{
-font-size:clamp(30px,5vw,44px);
-background:linear-gradient(90deg,#ffd700,#fff,#ffd700);
-background-size:200% auto;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shine 3s linear infinite;
+font-size:30px;
+letter-spacing:3px;
+margin-bottom:10px;
 }
-@keyframes shine{to{background-position:200% center}}
 
-#message{
-font-size:20px;
-line-height:2;
-max-width:850px;
-padding:25px;
+p{
+font-size:15px;
+max-width:600px;
+line-height:1.8;
+opacity:.9;
+}
+
+/* مربعات ذهبية */
+.counter{
+display:flex;
+gap:12px;
 margin-top:20px;
-background:rgba(255,255,255,0.06);
-border-radius:20px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
+.box{
+background:linear-gradient(145deg,#c9a227,#ffd700);
+color:black;
+padding:10px 16px;
+border-radius:8px;
+min-width:70px;
+font-weight:bold;
+font-size:14px;
+}
+
+/* أزرار */
 button{
-margin-top:25px;
-padding:15px 40px;
-font-size:18px;
+margin:15px;
+padding:10px 24px;
+font-size:15px;
 border:none;
-border-radius:50px;
+border-radius:30px;
 cursor:pointer;
-background:linear-gradient(45deg,#d4af37,#ffd700);
+background:linear-gradient(45deg,#c9a227,#ffd700);
 color:black;
 font-weight:bold;
-transition:.3s;
-}
-button:hover{transform:scale(1.1)}
-
-#counterBox{
-margin-top:25px;
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:20px;
-font-size:18px;
+transition:.2s;
+position:relative;
 }
 
-.signature{margin-top:10px;font-size:16px;opacity:.85}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
+button:hover{
+transform:scale(1.05);
 }
 
-@keyframes zoomIn{
-from{transform:translate(-50%,-50%) scale(0.5);opacity:0}
-to{transform:translate(-50%,-50%) scale(1);opacity:1}
+#noBtn{
+position:absolute;
 }
 </style>
 </head>
 
 <body>
 
-<div class="earth-bg"></div>
+<div class="bg"></div>
 
+<!-- الصفحة 1 -->
 <div id="page1" class="page">
-<h1>أهلاً هويده ❤️</h1>
-<p>في شي حاب أقوله من قلبي…</p>
-<button onclick="goToSecond()">ابدئي ✨</button>
+<h1>إشعار</h1>
+<p>
+يرجى متابعة القراءة للاطلاع على المحتوى.
+</p>
+<button onclick="goToSecond()">متابعة</button>
 </div>
 
+<!-- الصفحة 2 -->
 <div id="page2" class="page hidden">
-<h1>هويده ❤️</h1>
-<div id="message"></div>
+<h1>تاريخ البداية</h1>
 
-<div id="counterBox">
-منذ 4 مارس 2024 ❤️<br>
-<span id="counter"></span>
-<div class="signature">
-— أسامه سامي 🤍<br>
-انتظرج لآخر يوم بعمري
-</div>
+<div class="counter">
+<div class="box"><span id="d">0</span> يوم</div>
+<div class="box"><span id="h">0</span> ساعة</div>
+<div class="box"><span id="m">0</span> دقيقة</div>
+<div class="box"><span id="s">0</span> ثانية</div>
 </div>
 
-<button onclick="goToThird()">تابعي 💌</button>
+<p style="margin-top:20px;">
+يتم احتساب المدة منذ 4 مارس 2024.
+</p>
+
+<button onclick="goToThird()">التالي</button>
 </div>
 
+<!-- الصفحة 3 -->
 <div id="page3" class="page hidden">
-<h1>هويده… 💍</h1>
-<p style="font-size:22px;">تقبلين نكمل هالمشوار سوا؟ ❤️</p>
-<button onclick="accepted()">نعم 💕</button>
+<h1>سؤال</h1>
+<p>
+هل توافقين على الاستمرار في هذا المسار؟
+</p>
+
+<button onclick="accepted()">نعم</button>
+<button id="noBtn">لا</button>
 </div>
 
 <script>
@@ -149,9 +153,6 @@ const p1=page1,p2=page2,p3=page3;
 function goToSecond(){
 p1.classList.add("hidden");
 p2.classList.remove("hidden");
-message.innerHTML="";
-i=0;
-setTimeout(startTyping,400);
 }
 
 function goToThird(){
@@ -159,33 +160,31 @@ p2.classList.add("hidden");
 p3.classList.remove("hidden");
 }
 
-const text=`هلا هويده…
-من أول ما عرفتك صار عندك أثر مختلف بحياتي،
-ضحكتك وطريقتك وحتى وجودك يخلي يومي أحلى.
-أتمنى يكون إلي مكان بقلبج
-مثل ما إلك مكان كبير بقلبي.`;
-
-let i=0;
-function startTyping(){
-if(i<text.length){
-message.innerHTML+=text.charAt(i++);
-setTimeout(startTyping,70);
+/* عداد */
+const start=new Date(2024,2,4);
+function update(){
+let diff=new Date()-start;
+d.innerText=Math.floor(diff/86400000);
+h.innerText=Math.floor(diff%86400000/3600000);
+m.innerText=Math.floor(diff%3600000/60000);
+s.innerText=Math.floor(diff%60000/1000);
 }
-}
+setInterval(update,1000);
+update();
 
-const loveStart=new Date(2024,2,4);
-function updateCounter(){
-let d=new Date()-loveStart;
-counter.innerHTML=
-`${Math.floor(d/86400000)} يوم
-${Math.floor(d%86400000/3600000)} ساعة
-${Math.floor(d%3600000/60000)} دقيقة
-${Math.floor(d%60000/1000)} ثانية`;
-}
-setInterval(updateCounter,1000);updateCounter();
+/* زر لا يهرب */
+const noBtn=document.getElementById("noBtn");
 
+noBtn.addEventListener("mouseenter",()=>{
+const x=Math.random()*(window.innerWidth-100);
+const y=Math.random()*(window.innerHeight-50);
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+});
+
+/* عند الموافقة */
 function accepted(){
-document.body.innerHTML = `
+document.body.innerHTML=`
 <div style="
 position:fixed;
 inset:0;
@@ -193,53 +192,13 @@ background:black;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
-color:white;
-font-family:'Cairo',sans-serif;
-text-align:center;
-animation:fadeIn 2s;
+color:#ffd700;
+font-size:28px;
+letter-spacing:3px;
 ">
-
-<h1 style="font-size:32px;opacity:.7;">لحظة بس... ❤️</h1>
-<p style="margin-top:15px;font-size:20px;opacity:.6;">
-إذا قلتي نعم... يعني للأبد 👑
-</p>
-
-</div>
-
-<audio autoplay>
-<source src="https://www.soundjay.com/human/sounds/heartbeat-01.mp3">
-</audio>
-`;
-
-setTimeout(()=>{
-document.body.innerHTML += `
-<div style="
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-animation:zoomIn 2s ease;
-">
-
-<h1 style="
-font-size:42px;
-background:linear-gradient(90deg,#ffd700,#fff,#ffd700);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shine 3s linear infinite;
-">
-هويده أسامه 💍✨
-</h1>
-
-<p style="font-size:22px;margin-top:20px;">
-من اليوم… رسميًا ملكتي 👑❤️
-</p>
-
+تم تسجيل الموافقة.
 </div>
 `;
-},4000);
 }
 </script>
 
