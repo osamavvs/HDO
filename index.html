@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هويدة</title>
+<title>هويده ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{box-sizing:border-box}
@@ -14,24 +16,30 @@ body{
 margin:0;
 font-family:'Cairo',sans-serif;
 background:black;
-color:#ffd700;
+color:white;
 text-align:center;
 overflow:hidden;
 }
 
-/* خلفية ذهبية رسمية */
-.bg{
+/* خلفية متحركة */
+.earth-bg{
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(60,45,10,.6), black),
-url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa");
 background-size:cover;
 background-position:center;
+animation:moveBg 40s linear infinite;
 z-index:-1;
-filter:brightness(.35);
+}
+@keyframes moveBg{
+0%{transform:scale(1) translateX(0)}
+50%{transform:scale(1.08) translateX(-20px)}
+100%{transform:scale(1) translateX(0)}
 }
 
+/* الصفحات */
 .page{
 position:absolute;
 width:100%;
@@ -40,185 +48,213 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-padding:20px;
-transition:opacity .6s ease;
+transition:1s;
 }
+.hidden{opacity:0;pointer-events:none}
 
-.hidden{
-opacity:0;
-pointer-events:none;
-}
-
+/* العناوين */
 h1{
-font-size:30px;
-margin-bottom:10px;
+font-size:clamp(30px,5vw,44px);
+background:linear-gradient(90deg,#ffd700,#fff,#ffd700);
+background-size:200% auto;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 3s linear infinite;
 }
+@keyframes shine{to{background-position:200% center}}
 
-.message-box{
-max-width:700px;
-font-size:14px;
+/* النص */
+#message{
+font-size:20px;
 line-height:2;
-background:rgba(255,215,0,0.08);
-padding:20px;
-border-radius:12px;
-margin-top:15px;
-}
-
-/* مربعات ذهبية */
-.counter{
-display:flex;
-gap:10px;
+max-width:850px;
+padding:25px;
 margin-top:20px;
-flex-wrap:wrap;
-justify-content:center;
+background:rgba(255,255,255,0.06);
+border-radius:20px;
 }
 
-.box{
-background:linear-gradient(145deg,#c9a227,#ffd700);
-color:black;
-padding:10px 16px;
-border-radius:8px;
-min-width:80px;
-font-weight:bold;
-font-size:13px;
-}
-
-/* أزرار */
+/* الأزرار */
 button{
-margin-top:15px;
-padding:9px 22px;
-font-size:13px;
+margin-top:25px;
+padding:15px 40px;
+font-size:18px;
 border:none;
-border-radius:25px;
+border-radius:50px;
 cursor:pointer;
-background:linear-gradient(45deg,#c9a227,#ffd700);
+background:linear-gradient(45deg,#d4af37,#ffd700);
 color:black;
 font-weight:bold;
-transition:.2s;
-position:relative;
+transition:.3s;
+}
+button:hover{transform:scale(1.1)}
+
+/* العداد */
+#counterBox{
+margin-top:25px;
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:20px;
+font-size:18px;
 }
 
-button:hover{
-transform:scale(1.05);
-}
+/* توقيع */
+.signature{margin-top:10px;font-size:16px;opacity:.85}
 
-#noBtn{
-position:absolute;
+/* انستا */
+.insta-box{
+margin-top:20px;
+background:rgba(255,255,255,0.1);
+padding:15px 30px;
+border-radius:25px;
+display:flex;
+gap:15px;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
 }
-
-a{
+.insta-box a{
 color:#ffd700;
 text-decoration:none;
 font-weight:bold;
-margin-top:10px;
-display:block;
+}
+.insta-box i{font-size:22px;color:#E1306C}
+
+/* قلوب */
+.heart{
+position:absolute;
+animation:float 6s linear infinite;
+font-size:24px;
+}
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<div class="earth-bg"></div>
 
-<!-- الصفحة 1 -->
+<!-- الصفحة الأولى -->
 <div id="page1" class="page">
-<h1>هلا هويدة</h1>
-<button onclick="goToSecond()">اضغطي هنا لإضافة حسابي على الإنستغرام</button>
-
-<div id="instaSection" style="display:none; margin-top:15px;">
-<a href="https://www.instagram.com/3ACZ" target="_blank">3ACZ</a>
-</div>
+<h1>أهلاً هويده ❤️</h1>
+<p>في شي حاب أقوله من قلبي…</p>
+<button onclick="goToSecond()">ابدئي ✨</button>
 </div>
 
-<!-- الصفحة 2 -->
+<!-- الصفحة الثانية -->
 <div id="page2" class="page hidden">
+<h1>هويده ❤️</h1>
 
-<div class="message-box">
-هلا هويده…<br><br>
-يمكن ما تعرفيني زين بعد، بس حسيت لازم أقول لك شي من قلبي.<br>
-من أول ما عرفتك صار عندك أثر مختلف بحياتي،<br>
-ضحكتك، طريقتك، وحتى وجودك يخلي يومي أحلى.<br>
-ما أريد أطوّل بالكلام…<br>
-الحقيقة الواضحة، وأتمنى يكون إلي مكان بقلبج<br>
-مثل ما إلك مكان كبير بقلبي.
+<div id="message"></div>
+
+<div id="counterBox">
+منذ 4 مارس 2024 ❤️<br>
+<span id="counter"></span>
+<div class="signature">
+— حساب الإنستغرام الخاص بي<br>
+اضغطي على اليوزر
+</div>
 </div>
 
-<div style="margin-top:20px;">منذ عام 2024</div>
-
-<div class="counter">
-<div class="box"><span id="d">0</span> يوم</div>
-<div class="box"><span id="h">0</span> ساعة</div>
-<div class="box"><span id="m">0</span> دقيقة</div>
-<div class="box"><span id="s">0</span> ثانية</div>
+<!-- زر حساب الإنستغرام -->
+<div class="insta-box">
+<i class="fa-brands fa-instagram"></i>
+<a href="https://www.instagram.com/3ACZ" target="_blank">@3ACZ</a>
 </div>
 
-<button onclick="showFinal()">استمري</button>
+<button onclick="goToThird()">استمري 💌</button>
+</div>
 
-<!-- الصفحة 3 -->
-<div id="finalSection" style="display:none; margin-top:20px;">
+<!-- الصفحة الثالثة -->
+<div id="page3" class="page hidden">
 <h1>هل ممكن نلتقي؟</h1>
-<p>هل لنا بلقاء أو ممكن نلتقي أو أنت منين؟</p>
+<p style="font-size:22px;">هل لنا بلقاء أو ممكن نلتقي أو أنت منين؟</p>
 <button onclick="accepted()">موافقة</button>
 <button id="noBtn">لا</button>
 </div>
 
 <script>
-const p1=page1;
-const p2=page2;
+const p1=page1,p2=page2,p3=page3;
 
-/* الانتقال للصفحة 2 */
+/* التنقل */
 function goToSecond(){
-document.getElementById("instaSection").style.display="block"; // يظهر اليوزر
-setTimeout(()=>{
 p1.classList.add("hidden");
 p2.classList.remove("hidden");
-}, 300); // انتقال ناعم
+message.innerHTML="";
+i=0;
+setTimeout(startTyping,400);
+}
+function goToThird(){
+p2.classList.add("hidden");
+p3.classList.remove("hidden");
 }
 
-/* عداد منذ 2024 */
-const start=new Date(2024,0,1);
-function update(){
-let diff=new Date()-start;
-d.innerText=Math.floor(diff/86400000);
-h.innerText=Math.floor(diff%86400000/3600000);
-m.innerText=Math.floor(diff%3600000/60000);
-s.innerText=Math.floor(diff%60000/1000);
-}
-setInterval(update,1000);
-update();
+/* الكتابة */
+const text=`هلا هويده…
+يمكن ما تعرفيني زين بعد، بس حسيت لازم أقول لك شي من قلبي.
+من أول ما عرفتك صار عندك أثر مختلف بحياتي،
+ضحكتك، طريقتك، وحتى وجودك يخلي يومي أحلى.
+ما أريد أطوّل بالكلام…
+الحقيقة الواضحة، وأتمنى يكون إلي مكان بقلبج
+مثل ما إلك مكان كبير بقلبي.`;
 
-/* عرض القسم النهائي */
-function showFinal(){
-document.getElementById("finalSection").style.display="block";
+let i=0;
+function startTyping(){
+if(i<text.length){
+message.innerHTML+=text.charAt(i++);
+setTimeout(startTyping,70);
+}
+}
+
+/* العداد */
+const loveStart=new Date(2024,2,4);
+function updateCounter(){
+let d=new Date()-loveStart;
+counter.innerHTML=
+`${Math.floor(d/86400000)} يوم
+${Math.floor(d%86400000/3600000)} ساعة
+${Math.floor(d%3600000/60000)} دقيقة
+${Math.floor(d%60000/1000)} ثانية`;
+}
+setInterval(updateCounter,1000);updateCounter();
+
+/* الموافقة */
+function accepted(){
+p3.innerHTML=`
+<h1>تم تسجيل الموافقة</h1>
+`;
+
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+}
 }
 
 /* زر لا يهرب */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseenter",()=>{
-const x=Math.random()*(window.innerWidth-120);
-const y=Math.random()*(window.innerHeight-60);
+const x=Math.random()*(window.innerWidth-100);
+const y=Math.random()*(window.innerHeight-50);
 noBtn.style.left=x+"px";
 noBtn.style.top=y+"px";
 });
 
-/* عند الموافقة */
-function accepted(){
-document.body.innerHTML=`
-<div style="
-position:fixed;
-inset:0;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#ffd700;
-font-size:24px;
-letter-spacing:2px;
-">
-تم تسجيل الموافقة.
-</div>
-`;
-}
+/* قلوب مستمرة */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},900);
 </script>
 
 </body>
