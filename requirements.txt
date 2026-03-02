@@ -1,0 +1,6 @@
+pyrogram==2.0.106
+tgcrypto
+pytgcalls==3.0.0.dev24
+motor
+yt-dlp
+youtube-search-python
